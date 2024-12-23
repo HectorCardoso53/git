@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff1493;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            font-size: 1.4rem;
+            color: #555;
+            margin-bottom: 20px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .message:hover {
+            color: #ff1493;
+            transform: scale(1.1);
+        }
+
+        .message:active {
+            transform: translateY(-10px);
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ff1493;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <div class="carousel-images" id="carousel">
+            <img src="img/WhatsApp Image 2024-12-23 at 12.26.06.jpeg" alt="Imagem 1">
+            <img src="img/WhatsApp Image 2024-12-23 at 12.26.07 (1).jpeg" alt="Imagem 2">
+            <img src="img/WhatsApp Image 2024-12-23 at 12.26.07 (2).jpeg" alt="Imagem 3">
+            <img src="img/WhatsApp Image 2024-12-23 at 12.26.07 (3).jpeg" alt="Imagem 4">
+            <img src="img/WhatsApp Image 2024-12-23 at 12.26.07.jpeg" alt="Imagem 5">
+            <img src="img/WhatsApp Image 2024-12-23 at 12.26.08.jpeg" alt="Imagem 6">
+            <img src="img/WhatsApp Image 2024-12-23 at 12.28.24.jpeg" alt="Imagem 7">
+        </div>
+        <div class="carousel-buttons">
+            <button class="carousel-button" onclick="previousSlide()">&#10094;</button>
+            <button class="carousel-button" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <h1>💖🦋Ariel e Hector 🦋💖</h1>
+    <p class="message">
+        Vida, você é o maior presente que a vida me deu. 
+        Eu te amo mais do que palavras podem expressar! 🌹💖 
+        Quis fazer essa surpresa para mostrar o quanto você significa para mim. ✨
+        E de uma forma bem diferente, porque somos diferentes dos iguais. 🦋💖🦋
+    </p>
+
+    <footer>
+        🦋 Minha Loira Rabiuscada 🦋
+    </footer>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const images = carousel.children;
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const width = carousel.clientWidth;
+            carousel.style.transform = `translateX(-${currentIndex * width}px)`;
+        }
+
+        function previousSlide() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        }
+
+        window.addEventListener('resize', updateCarousel);
+    </script>
+</body>
+</html>
